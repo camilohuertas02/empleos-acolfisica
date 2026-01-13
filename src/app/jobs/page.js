@@ -3,6 +3,7 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabaseClient';
+import Link from 'next/link';
 
 function SearchContent() {
   const searchParams = useSearchParams();
@@ -107,9 +108,9 @@ function SearchContent() {
                      <span className="text-xs font-semibold text-green-700 bg-green-50 px-2 py-1 rounded border border-green-100">
                         {empleo.modalidad}
                      </span>
-                     <a href={empleo.enlace_aplicacion} target="_blank" className="bg-yellow-500 hover:bg-yellow-400 text-blue-900 text-sm font-bold px-5 py-2 rounded shadow-sm transition-colors whitespace-nowrap">
+                     <Link href={`/jobs/${empleo.id}`} target="_blank" className="bg-yellow-500 hover:bg-yellow-400 text-blue-900 text-sm font-bold px-5 py-2 rounded shadow-sm transition-colors whitespace-nowrap">
                        Ver detalles
-                     </a>
+                     </Link>
                      <span className="text-xs text-gray-400">Publicado recientemente</span>
                   </div>
                 </div>
